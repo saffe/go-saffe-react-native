@@ -10,7 +10,7 @@ export default function SaffeCaptureComponent(props) {
       allowsInlineMediaPlayback
       mediaPlaybackRequiresUserAction
       onMessage={(event) => {
-        const data = JSON.parse(event.nativeEvent.data)
+        const data = JSON.parse(event.nativeEvent.data);
         if (data && data.source === 'go-saffe-capture') {
           if (data.payload.event === 'close') {
             if (props.onClose) {
@@ -24,9 +24,10 @@ export default function SaffeCaptureComponent(props) {
           }
         }
       }}
-      source={{ uri: `https://pedrovictorcruz.github.io/myproject/?key=${props.apiKey}&type=${props.type}&endToEndId=${props.end2end}` }}
+      source={{
+        uri: `https://pedrovictorcruz.github.io/myproject/?key=${props.apiKey}&user=${props.user}&type=${props.type}&endToEndId=${props.end2end}`,
+      }}
     />
-
   );
 }
 
