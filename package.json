@@ -1,5 +1,5 @@
 {
-  "name": "go-saffe-react-native",
+  "name": "@go-saffe/go-saffe-react-native",
   "version": "0.1.4",
   "description": "Package to render saffe capture",
   "main": "lib/commonjs/index",
@@ -40,13 +40,16 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/pedrovictorcruz/rn-saffe-capture",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saffe/go-saffe-react-native.git"
+  },
   "author": "Pedro Cruz <pedrovictor.lage@gmail.com> (https://github.com/pedrovictorcruz)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pedrovictorcruz/rn-saffe-capture/issues"
+    "url": "https://github.com/saffe/go-saffe-react-native/issues"
   },
-  "homepage": "https://github.com/pedrovictorcruz/rn-saffe-capture#readme",
+  "homepage": "https://github.com/saffe/go-saffe-react-native#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -160,5 +163,9 @@
     "expo-camera": "^13.4.2",
     "expo-modules-core": "^1.5.10",
     "react-native-webview": "^13.3.1"
+  },
+  "directories": {
+    "example": "example",
+    "lib": "lib"
   }
 }
