@@ -1,21 +1,27 @@
-# rn-saffe-capture
+# go-saffe-react-native
 
 Package to render saffe capture
 
 ## Installation
 
 ```sh
-npm install rn-saffe-capture
+npm install @go.saffe/go-saffe-react-native
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'rn-saffe-capture';
+import SaffeCapture from "@go.saffe/go-saffe-react-native";
 
 // ...
-
-const result = await multiply(3, 7);
+<SaffeCapture
+  apiKey={} // your go saffe api key
+  user={} // user identifier
+  type={} // type of your capture: onboarding or verification
+  endToEndId={} // end to end id
+  onClose={} // your onClose function for client close the capture
+  onFinish={} // your onFinish function for finsh capture
+/>
 ```
 
 ## Contributing
@@ -27,5 +33,3 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 MIT
 
 ---
-
-Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
