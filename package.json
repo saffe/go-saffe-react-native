@@ -1,6 +1,6 @@
 {
   "name": "@go.saffe/go-saffe-react-native",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Package to render saffe capture",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -160,8 +160,6 @@
     ]
   },
   "dependencies": {
-    "expo-camera": "^13.4.2",
-    "expo-modules-core": "^1.5.10",
     "react-native-webview": "^13.3.1"
   },
   "directories": {
