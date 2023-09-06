@@ -2,6 +2,13 @@ import { WebView } from 'react-native-webview';
 import { StyleSheet } from 'react-native';
 
 export default function SaffeCaptureComponent(props) {
+  const body = {
+    api_key: props.apiKey ?? null,
+    user_identifier: props.user ?? null,
+    type: props.type ?? null,
+    end_to_end_id: props.endToEnd ?? null,
+  };
+
   return (
     <WebView
       useWebKit
@@ -25,7 +32,10 @@ export default function SaffeCaptureComponent(props) {
         }
       }}
       source={{
-        uri: `https://pedrovictorcruz.github.io/myproject/?key=${props.apiKey}&user=${props.user}&type=${props.type}&endToEndId=${props.end2end}`,
+        uri: 'https://go.saffe.ai/v0/capture',
+        headers: { 'Content-Type': 'application/json' },
+        method: 'post',
+        body: JSON.stringify(body),
       }}
     />
   );
