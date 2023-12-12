@@ -6,7 +6,7 @@ export default function SaffeCaptureComponent(props) {
     api_key: props.apiKey ?? null,
     user_identifier: props.user ?? null,
     type: props.type ?? null,
-    end_to_end_id: props.endToEnd ?? null,
+    end_to_end_id: props.endToEndId ?? null,
   };
 
   return (
@@ -32,7 +32,7 @@ export default function SaffeCaptureComponent(props) {
         }
       }}
       source={{
-        uri: 'https://go.saffe.ai/v0/capture',
+        uri: 'http://localhost:8080/v0/capture',
         headers: { 'Content-Type': 'application/json' },
         method: 'post',
         body: JSON.stringify(body),
