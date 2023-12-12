@@ -6,7 +6,7 @@ export default function SaffeCaptureComponent(props) {
     api_key: props.apiKey ?? null,
     user_identifier: props.user ?? null,
     type: props.type ?? null,
-    end_to_end_id: props.endToEnd ?? null,
+    end_to_end_id: props.endToEndId ?? null,
   };
 
   return (
