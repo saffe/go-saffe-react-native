@@ -1,6 +1,6 @@
 {
   "name": "@go.saffe/go-saffe-react-native",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Package to render saffe capture",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -85,7 +85,6 @@
   "engines": {
     "node": ">= 16.0.0"
   },
-  "packageManager": "^yarn@1.22.15",
   "jest": {
     "preset": "react-native",
     "modulePathIgnorePatterns": [
