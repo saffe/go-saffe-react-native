@@ -1,6 +1,6 @@
 {
   "name": "@go.saffe/go-saffe-react-native",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Package to render saffe capture",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
