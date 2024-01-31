@@ -1,3 +1,4 @@
+import React from 'react';
 import { WebView } from 'react-native-webview';
 import { StyleSheet } from 'react-native';
 
@@ -15,7 +16,7 @@ export default function SaffeCaptureComponent(props) {
       style={styles.container}
       originWhitelist={['*']}
       allowsInlineMediaPlayback
-      mediaPlaybackRequiresUserAction
+      mediaPlaybackRequiresUserAction={false}
       onMessage={(event) => {
         const data = JSON.parse(event.nativeEvent.data);
         if (data && data.source === 'go-saffe-capture') {
