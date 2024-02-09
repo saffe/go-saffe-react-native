@@ -11,7 +11,9 @@ loadComponent();
 export default function SaffeCapture(props: any) {
   return (
     <View style={styles.container}>
-      <SaffeCaptureComponent
+      <SaffeCaptureComponents
+        onError={props.onError}
+        onLoad={props.onLoad}
         apiKey={props.apiKey}
         type={props.type}
         endToEndId={props.endToEndId}
