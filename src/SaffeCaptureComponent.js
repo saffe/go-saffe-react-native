@@ -12,16 +12,16 @@ export default function SaffeCaptureComponent(props) {
 
   return (
     <WebView
-      onError={()=>{
-        if(props.onError()){
-          props.onError()
+      onError={() => {
+        if (props.onError()) {
+          props.onError();
         }
       }}
       onLoad={() => {
-        if(props.onLoad()){
-           props.onLoad()
+        if (props.onLoad()) {
+          props.onLoad();
         }
-       }}
+      }}
       useWebKit
       style={styles.container}
       originWhitelist={['*']}
