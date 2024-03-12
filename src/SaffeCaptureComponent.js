@@ -1,6 +1,7 @@
 import React from 'react';
 import { WebView } from 'react-native-webview';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
+import JailMonkey from 'jail-monkey';
 
 export default function SaffeCaptureComponent(props) {
   const body = {
@@ -8,6 +9,7 @@ export default function SaffeCaptureComponent(props) {
     user_identifier: props.user ?? null,
     type: props.type ?? null,
     end_to_end_id: props.endToEndId ?? null,
+    device_context: getDeviceContext(),
   };
 
   return (
@@ -51,6 +53,27 @@ export default function SaffeCaptureComponent(props) {
     />
   );
 }
+
+const getDeviceContext = () => {
+  try {
+    const isJailBroken = JailMonkey.isJailBroken();
+    const isRealDevice = JailMonkey.trustFall();
+
+    let isOnExternalStorage = false;
+
+    if (Platform.OS === 'android') {
+      isOnExternalStorage = JailMonkey.isOnExternalStorage();
+    }
+
+    return {
+      isJailBroken,
+      isRealDevice,
+      isOnExternalStorage,
+    };
+  } catch (error) {
+    return null;
+  }
+};
 
 const styles = StyleSheet.create({
   container: {
