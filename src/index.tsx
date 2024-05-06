@@ -15,7 +15,7 @@ export default function SaffeCapture(props: any) {
       <SaffeCaptureComponent
         onError={props.onError}
         onLoad={props.onLoad}
-        apiKey={props.apiKey}
+        captureKey={props.captureKey}
         type={props.type}
         endToEndId={props.endToEndId}
         user={props.user}

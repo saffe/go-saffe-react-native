@@ -5,7 +5,7 @@ import JailMonkey from 'jail-monkey';
 
 export default function SaffeCaptureComponent(props) {
   const body = {
-    api_key: props.apiKey ?? null,
+    capture_key: props.captureKey ?? null,
     user_identifier: props.user ?? null,
     type: props.type ?? null,
     end_to_end_id: props.endToEndId ?? null,
