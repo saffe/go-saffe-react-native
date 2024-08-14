@@ -1,30 +1,40 @@
 import React from 'react';
-import { WebView } from 'react-native-webview';
+import { WebView } from 'react-native-webview/src';
 import { Platform, StyleSheet } from 'react-native';
 import JailMonkey from 'jail-monkey';
 
-export default function SaffeCaptureComponent(props) {
+type Props = {
+  captureKey: string;
+  user: string;
+  type: 'verification' | 'onboarding';
+  endToEndId: string;
+  onError: () => void;
+  onLoad: () => void;
+  onClose: () => void;
+  onFinish: () => void;
+};
+
+const SaffeCaptureComponent = (props: Props) => {
   const body = {
     capture_key: props.captureKey ?? null,
     user_identifier: props.user ?? null,
     type: props.type ?? null,
     end_to_end_id: props.endToEndId ?? null,
-    device_context: getDeviceContext(),
+    device_context: getDeviceContext() ?? null,
   };
 
   return (
     <WebView
       onError={() => {
-        if (props.onError()) {
+        if (props.onError) {
           props.onError();
         }
       }}
       onLoad={() => {
-        if (props.onLoad()) {
+        if (props.onLoad) {
           props.onLoad();
         }
       }}
-      useWebKit
       style={styles.container}
       originWhitelist={['*']}
       allowsInlineMediaPlayback
@@ -52,7 +62,7 @@ export default function SaffeCaptureComponent(props) {
       }}
     />
   );
-}
+};
 
 const getDeviceContext = () => {
   try {
@@ -74,6 +84,8 @@ const getDeviceContext = () => {
     return null;
   }
 };
+
+export default SaffeCaptureComponent;
 
 const styles = StyleSheet.create({
   container: {

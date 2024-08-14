@@ -1,15 +1,19 @@
-import * as React from 'react';
+import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import SaffeCaptureComponent from './SaffeCaptureComponent';
 
-let SaffeCaptureComponent: any;
-
-const loadComponent = async () => {
-  const module = await require('./SaffeCaptureComponent');
-  SaffeCaptureComponent = module.default;
+type Props = {
+  captureKey: string;
+  user: string;
+  type: 'verification' | 'onboarding';
+  endToEndId: string;
+  onError: () => void;
+  onLoad: () => void;
+  onClose: () => void;
+  onFinish: () => void;
 };
-loadComponent();
 
-export default function SaffeCapture(props: any) {
+export default function SaffeCapture(props: Props) {
   return (
     <View style={styles.container}>
       <SaffeCaptureComponent
