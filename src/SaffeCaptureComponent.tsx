@@ -1,7 +1,14 @@
 import React from 'react';
 import { WebView } from 'react-native-webview/src';
 import { Platform, StyleSheet } from 'react-native';
-import JailMonkey from 'jail-monkey';
+
+let JailMonkey: any;
+
+try {
+  JailMonkey = require('jail-monkey');
+} catch (error) {
+  JailMonkey = null;
+}
 
 type Props = {
   captureKey: string;
@@ -20,7 +27,7 @@ const SaffeCaptureComponent = (props: Props) => {
     user_identifier: props.user ?? null,
     type: props.type ?? null,
     end_to_end_id: props.endToEndId ?? null,
-    device_context: getDeviceContext() ?? null,
+    device_context: getDeviceContext(),
   };
 
   return (
@@ -66,21 +73,26 @@ const SaffeCaptureComponent = (props: Props) => {
 
 const getDeviceContext = () => {
   try {
-    const isJailBroken = JailMonkey.isJailBroken();
-    const isRealDevice = JailMonkey.trustFall();
+    if (JailMonkey) {
+      const isJailBroken = JailMonkey.isJailBroken();
+      const isRealDevice = JailMonkey.trustFall();
 
-    let isOnExternalStorage = false;
+      let isOnExternalStorage = false;
 
-    if (Platform.OS === 'android') {
-      isOnExternalStorage = JailMonkey.isOnExternalStorage();
+      if (Platform.OS === 'android') {
+        isOnExternalStorage = JailMonkey.isOnExternalStorage();
+      }
+
+      return {
+        isJailBroken,
+        isRealDevice,
+        isOnExternalStorage,
+      };
+    } else {
+      return null;
     }
-
-    return {
-      isJailBroken,
-      isRealDevice,
-      isOnExternalStorage,
-    };
   } catch (error) {
+    console.log('error', error);
     return null;
   }
 };
