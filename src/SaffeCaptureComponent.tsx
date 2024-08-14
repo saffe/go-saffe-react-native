@@ -1,5 +1,5 @@
 import React from 'react';
-import { WebView } from 'react-native-webview/src';
+import { WebView } from 'react-native-webview';
 import { Platform, StyleSheet } from 'react-native';
 
 let JailMonkey: any;
