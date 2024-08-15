@@ -42,6 +42,7 @@ const SaffeCaptureComponent = (props: Props) => {
           props.onLoad();
         }
       }}
+      useWebKit
       style={styles.container}
       originWhitelist={['*']}
       allowsInlineMediaPlayback
