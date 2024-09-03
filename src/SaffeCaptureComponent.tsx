@@ -19,6 +19,7 @@ type Props = {
   onLoad: () => void;
   onClose: () => void;
   onFinish: () => void;
+  onTimeout: () => void;
 };
 
 const SaffeCaptureComponent = (props: Props) => {
@@ -50,15 +51,22 @@ const SaffeCaptureComponent = (props: Props) => {
       onMessage={(event) => {
         const data = JSON.parse(event.nativeEvent.data);
         if (data && data.source === 'go-saffe-capture') {
-          if (data.payload.event === 'close') {
-            if (props.onClose) {
-              props.onClose();
-            }
-          }
-          if (data.payload.event === 'finish') {
-            if (props.onFinish) {
-              props.onFinish();
-            }
+          switch (data.payload.event) {
+            case 'close':
+              if (props.onClose) {
+                props.onClose();
+              }
+              break;
+            case 'finish':
+              if (props.onFinish) {
+                props.onFinish();
+              }
+              break;
+            case 'timeout':
+              if (props.onTimeout) {
+                props.onTimeout();
+              }
+              break;
           }
         }
       }}

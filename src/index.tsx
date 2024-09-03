@@ -11,6 +11,7 @@ type Props = {
   onLoad: () => void;
   onClose: () => void;
   onFinish: () => void;
+  onTimeout: () => void;
 };
 
 export default function SaffeCapture(props: Props) {
@@ -25,6 +26,7 @@ export default function SaffeCapture(props: Props) {
         user={props.user}
         onClose={props.onClose}
         onFinish={props.onFinish}
+        onTimeout={props.onTimeout}
       />
     </View>
   );

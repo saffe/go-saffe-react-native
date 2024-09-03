@@ -23,6 +23,7 @@ import SaffeCapture from "@go.saffe/go-saffe-react-native";
   onError={} // callback function called to catch error from component
   onClose={} // callback function called when end-user closes (cancels) the capture
   onFinish={} // callback function called when end-user finishes (completes) the capture
+  onTimeout={} // callback function called when the capture ends for timeout
 />
 ```
 
