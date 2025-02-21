@@ -1,6 +1,7 @@
+```
 # go-saffe-react-native
 
-Package to render saffe capture
+Package to render saffe capture.
 
 ## Installation
 
@@ -27,6 +28,50 @@ import SaffeCapture from "@go.saffe/go-saffe-react-native";
 />
 ```
 
+## Native Configuration
+
+This component uses a WebView that requires native permissions to access the camera and location.
+Make sure to update the native configuration in your app and note that location must be enabled in our panel.
+
+**iOS (Info.plist):**
+
+```xml
+<key>NSCameraUsageDescription</key>
+<string>We need camera access</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>We need location access</string>
+```
+
+**Android (AndroidManifest.xml):**
+
+```xml
+<uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+```
+
+## Expo Configuration
+
+If you're using Expo, add the following settings in your `app.json` or `app.config.js`:
+
+```json
+{
+  "expo": {
+    "ios": {
+      "infoPlist": {
+        "NSCameraUsageDescription": "camera access description",
+        "NSLocationWhenInUseUsageDescription": "location access description"
+      }
+    },
+    "android": {
+      "permissions": [
+        "CAMERA",
+        "ACCESS_FINE_LOCATION"
+      ]
+    }
+  }
+}
+```
+
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
@@ -34,5 +79,4 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 ## License
 
 MIT
-
----
+```
