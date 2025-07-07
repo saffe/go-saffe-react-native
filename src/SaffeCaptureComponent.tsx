@@ -35,13 +35,6 @@ const parseExtraData = (extraData: ExtraData): ExtraDataDTO => {
 		};
 	}
 
-	if (extraData.sendResultsTo) {
-		extraDataDTO.send_results_to = {
-			media: extraData.sendResultsTo.media,
-			email: extraData.sendResultsTo.email,
-		};
-	}
-
 	return extraDataDTO;
 };
 

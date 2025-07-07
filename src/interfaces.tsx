@@ -4,14 +4,8 @@ export interface Settings {
 	lang?: string;
 }
 
-export interface SendResultsTo {
-	media: string;
-	email: string;
-}
-
 export interface ExtraData {
 	settings?: Settings;
-	sendResultsTo?: SendResultsTo;
 }
 
 export interface ExtraDataDTO {
@@ -19,9 +13,5 @@ export interface ExtraDataDTO {
 		primary_color?: string;
 		secondary_color?: string;
 		lang?: string;
-	};
-	send_results_to?: {
-		media: string;
-		email: string;
 	};
 }
