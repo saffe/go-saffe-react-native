@@ -24,31 +24,28 @@ import SaffeCapture from "@go.saffe/go-saffe-react-native";
   onClose={} // callback function called when end-user closes (cancels) the capture
   onFinish={} // callback function called when end-user finishes (completes) the capture
   onTimeout={} // callback function called when the capture ends for timeout
-  extraData={} // optional extra configuration data
+  extraData={} // optional extra configuration
 />
 ```
 
-### Extra Data Configuration
+The `extraData` prop is **optional** and allows for dynamic changes specific to the transaction, such as language and colors.
 
-The `extraData` prop allows you to customize the capture component with additional settings:
+Primary and secondary colors should be informed in hexadecimal code. Possible values for the key "lang" at the moment are "en" so that the capture interface is presented in english, "pt" for the language to be portuguese, and "es" for spanish.
+
+### Example of `extraData` with color settings:
 
 ```js
 <SaffeCapture
   // ... other props
   extraData={{
     settings: {
-      primaryColor: "#00ABAB",     // optional: primary color for the interface
-      secondaryColor: "#00FF00",   // optional: secondary color for the interface
-      lang: "pt"                   // optional: language code (e.g., "pt", "en", "es")
+      primaryColor: "#00ABAB",
+      secondaryColor: "#6A6A6A",
+      lang: "en"
     }
   }}
 />
 ```
-
-**Settings Properties:**
-- `primaryColor` (string, optional): Sets the primary color theme for the capture interface
-- `secondaryColor` (string, optional): Sets the secondary color theme for the capture interface  
-- `lang` (string, optional): Sets the language for the capture interface (language code format)
 
 ## Native Configuration
 
